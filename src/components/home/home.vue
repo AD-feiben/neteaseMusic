@@ -1,10 +1,10 @@
 <template lang="html">
 <div id="home">
   <div id="subRouters">
-    <div><router-link to="/home/recommend">个性推荐</router-link></div>
-    <div><router-link to="/home/songList">歌单</router-link></div>
-    <div><router-link to="/home/station">主播电台</router-link></div>
-    <div><router-link to="/home/ranking">排行榜</router-link></div>
+    <div><router-link to="/recommend">个性推荐</router-link></div>
+    <div><router-link to="/songList">歌单</router-link></div>
+    <div><router-link to="/station">主播电台</router-link></div>
+    <div><router-link to="/ranking">排行榜</router-link></div>
   </div>
   <router-view></router-view>
 </div>
@@ -15,7 +15,7 @@ export default {
   name: 'home',
   created: function(){
     if(window.location.hash === "#/home"){
-      this.$router.push('home/recommend');      
+      // this.$router.push('home/recommend');
     }
   }
 }
@@ -26,10 +26,12 @@ export default {
   display: flex;
   width: 100%;
   height: 1.1111111111111112rem;
+  background: #fbfdfc;
 }
 
 #subRouters div{
   flex: 1;
+  height: 100%;
 }
 
 #subRouters div a{

@@ -7,6 +7,9 @@ import recommend from '@/components/home/recommend/recommend.vue'
 import songList from '@/components/home/songList/songList.vue'
 import station from '@/components/home/station/station.vue'
 import ranking from '@/components/home/ranking/ranking.vue'
+import dynamic from '@/components/friend/dynamic/dynamic.vue'
+import nearby from '@/components/friend/nearby/nearby.vue'
+import friends from '@/components/friend/friends/friends.vue'
 
 Vue.use(Router)
 
@@ -21,16 +24,16 @@ export default new Router({
       path: '',
       component: home
     }, {
-      path: '/home/recommend',
+      path: '/recommend',
       component: recommend
     }, {
-      path: '/home/songList',
+      path: '/songList',
       component: songList
     }, {
-      path: '/home/station',
+      path: '/station',
       component: station
     }, {
-      path: '/home/ranking',
+      path: '/ranking',
       component: ranking
     }]
   }, {
@@ -40,6 +43,16 @@ export default new Router({
   }, {
     path: '/friend',
     name: 'friend',
-    component: friend
+    component: friend,
+    children: [{
+      path: '/dynamic',
+      component: dynamic
+    }, {
+      path: '/nearby',
+      component: nearby
+    }, {
+      path: '/friends',
+      component: friends
+    }]
   }]
 })

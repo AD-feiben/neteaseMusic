@@ -1,0 +1,80 @@
+{
+    "bannerCount": 8,
+    "banners": [{
+            "href": "http://music.163.com/#/topic?id=17482051",
+            "imgUrl": "http://p3.music.126.net/8HaJr_O6jrfs0MnPPI14qQ==/18564154325198749.jpg"
+        },
+        {
+            "href": "http://music.163.com/store/product/detail?id=6172052",
+            "imgUrl": "http://p3.music.126.net/erZfIBSpFVKUtKbAEuFhIw==/18806046883310524.jpg"
+        },
+        {
+            "href": "http://music.163.com/store/concert/detail?concertId=41132",
+            "imgUrl": "http://p3.music.126.net/c4C5EBnl9g5OUde1uAa11w==/18895107323346952.jpg"
+        },
+        {
+            "href": "https://music.163.com/#/activity?id=16768095",
+            "imgUrl": "http://p4.music.126.net/Aa5FZ-OS7khiO3ArGBi9_A==/18770862511222383.jpg"
+        },
+        {
+            "href": "https://music.163.com/#/activity?id=17551057",
+            "imgUrl": "http://p3.music.126.net/kNi1TSKMkiZhkTfwjvbH3A==/18779658604237699.jpg"
+        },
+        {
+            "href": "http://music.163.com/#/mv?id=5452020",
+            "imgUrl": "http://p4.music.126.net/QMe35YOtRWmydMUmCB8YSQ==/18670806953686715.jpg"
+        },
+        {
+            "href": "http://music.163.com/song?id=463840571",
+            "imgUrl": "http://p3.music.126.net/uOy6EUkafAzuq7eKX-QLLg==/18556457743802871.jpg"
+        },
+        {
+            "href": "http://you.163.com/act/pub/HapMsXmKVs.html?from=web_fc_yunyiyue_web",
+            "imgUrl": "http://p3.music.126.net/FkU_1BE2tEf_LthzIy0azA==/18992963858218192.jpg"
+        }
+    ],
+    "lists": [{
+            "id": 488409970,
+            "img": "http://p4.music.126.net/lSvAbp8B46tTKeRDnyzY4w==/109951162801969378.jpg",
+            "href": "http://music.163.com/#/playlist?id=488409970",
+            "title": "不走甜腻风，这些男女合唱别有一番风味",
+            "num": 1874639
+        },
+        {
+            "id": 562901306,
+            "img": "http://p3.music.126.net/de_NteUorO5_FU9f7AuXnw==/18788454697265512.jpg",
+            "href": "http://music.163.com/#/playlist?id=562901306",
+            "title": "幻游眠声|沉沦孤海中浮出的断岸破帆",
+            "num": 656236
+        },
+        {
+            "id": 378658225,
+            "img": "http://p3.music.126.net/ex-EN0E90kEI74wPWegUgA==/1367792474617556.jpg",
+            "href": "http://music.163.com/#/playlist?id=378658225",
+            "title": "【华语】感谢永远有歌，把心境道破",
+            "num": 10058177
+        },
+        {
+            "id": 119606277,
+            "img": "http://p3.music.126.net/6hW9kh_HH5w3opL4Gx5hbg==/3395291907694824.jpg",
+            "href": "http://music.163.com/#/playlist?id=119606277",
+            "title": "【催眠向BGM】音符伴你入梦 告别无眠之夜",
+            "num": 7757819
+        },
+        {
+            "id": 48494804,
+            "img": "http://p4.music.126.net/ghlkKkAgjLP3CLdWxcu_Xw==/109951162862524147.jpg",
+            "href": "http://music.163.com/#/playlist?id=48494804",
+            "title": "NBA全明星御用宣传单曲！",
+            "num": 2672938
+        },
+        {
+            "id": 172276778,
+            "img": "http://p4.music.126.net/XrDN8PC8wrWBaLYUko1LPg==/1400777815583105.jpg",
+            "href": "http://music.163.com/#/playlist?id=172276778",
+            "title": "林俊杰最全歌曲合辑",
+            "num": 3574645
+        }
+    ],
+    "code": 200
+}

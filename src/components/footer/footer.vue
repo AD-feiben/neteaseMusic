@@ -94,7 +94,7 @@ export default {
 #songInfo #songName{
   color: #2b2b2b;
   font-size: 0.3888888888888889rem;
-  margin-bottom: 0.1388888888888889rem;
+  /*margin-bottom: 0.1388888888888889rem;*/
 }
 
 #songInfo #artist{

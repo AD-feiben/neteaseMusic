@@ -5,16 +5,16 @@
   </div>
   <div id="routers">
     <div>
-      <router-link to="/home/recommend"><i class="iconfont icon-wangyiyunyinlezizhi-copy"></i></router-link>
+      <router-link to="/recommend"><i class="iconfont icon-wangyiyunyinlezizhi-copy"></i></router-link>
     </div>
     <div>
       <router-link to="/list"><i class="iconfont icon-yinyue"></i></router-link>
     </div>
     <div>
-      <router-link to="/friend"><i class="iconfont icon-pengyou"></i></router-link>
+      <router-link to="/friends"><i class="iconfont icon-pengyou"></i></router-link>
     </div>
   </div>
-  <div id="search">
+  <div id="search" v-on:click="search">
     <i class="iconfont icon-sousuo_sousuo"></i>
   </div>
 </div>
@@ -22,7 +22,13 @@
 
 <script>
 export default {
-  name: "myHeader"
+  name: "myHeader",
+  methods: {
+    search : function(){
+      console.log("sreach is click");
+      this.$emit('searching');
+    }
+  }
 }
 </script>
 

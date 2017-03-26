@@ -1,28 +1,44 @@
 <template>
 <div id="app">
-  <myHeader></myHeader>
+  <myHeader  v-on:searching='showSearch'></myHeader>
   <div id="view">
     <router-view></router-view>
   </div>
   <myFooter></myFooter>
+  <mySearch v-show='searching' v-on:back="hideSearch"></mySearch>
 </div>
 </template>
 
 <script>
 import myHeader from './components/header/header.vue'
 import myFooter from './components/footer/footer.vue'
+import mySearch from './components/search/search.vue'
 export default {
   name: 'app',
+  data(){
+    return {
+      searching: true
+    }
+  },
+  methods: {
+    showSearch: function(){
+      console.log('接收到子件的消息');
+      this.searching = true;
+    },
+    hideSearch: function(){
+      this.searching = false;
+    }
+  },
   components: {
     myHeader,
-    myFooter
+    myFooter,
+    mySearch
   },
   created: function (){
     if(window.location.hash === '#/'){
-      this.$router.push('home');
+      this.$router.push('recommend');
     }
   }
-
 }
 </script>
 
@@ -34,6 +50,7 @@ body,html,p,h1,h2,h3,h4,h5,h6,ul,ol,li {
 
 body,html {
   height: 100%;
+  background: #eff3f2;
 }
 
 ul,ol,li{
@@ -42,9 +59,17 @@ ul,ol,li{
 a{
   text-decoration: none;
 }
+img{
+  vertical-align: top;
+}
+input{
+  outline: none;
+  border: none;
+}
 
-body,
-#app {
+::-webkit-scrollbar{width:0px}
+
+body,#app {
   height: 100%;
   min-width: 320px;
   max-width: 720px;

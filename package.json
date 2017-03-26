@@ -9,6 +9,8 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "axios": "^0.15.3",
+    "swiper": "^3.4.2",
     "vue": "^2.2.2",
     "vue-router": "^2.2.0"
   },

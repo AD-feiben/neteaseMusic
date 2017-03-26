@@ -6,7 +6,6 @@ import router from './router'
 
 require('../lib/flexible.js')
 
-
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
