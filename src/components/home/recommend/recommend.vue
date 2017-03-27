@@ -2,6 +2,7 @@
   <div id="recommend">
     <div id="banner" class="swiper-container">
       <div class="swiper-wrapper">
+        <!-- 渲染 ajax 获取的数据 -->
         <div class="swiper-slide" v-for="banner of banners">
           <a :href="banner.href">
             <img :src="banner.imgUrl">
@@ -59,6 +60,7 @@
 </template>
 
 <script>
+// 导入 axios 用于 ajax 请求
 import axios from 'axios'
 import Swiper from 'swiper'
 export default {
@@ -72,9 +74,14 @@ export default {
   created: function() {
     if (!this.banners) {
       axios.get('./static/data.json')
+        // 数据请求成功的时候调用的函数
         .then((res) => {
+          // 将 ajax 获取的数据赋值给 data 的属性
           this.lists = res.data.lists;
           this.banners = res.data.banners;
+
+          // 设置定时器是为了避免轮播图
+          // 第二轮轮播的时候直接跳过第一张
           setTimeout(function() {
             new Swiper("#banner", {
               autoplay: 3000,
@@ -89,6 +96,7 @@ export default {
           }, 50);
 
         })
+        // 数据请求失败的时候调用的函数
         .catch((err) => {
           console.log(err)
         })

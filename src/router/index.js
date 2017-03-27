@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+// 导入组件
 import home from '@/components/home/home.vue'
 import list from '@/components/list/list.vue'
 import friend from '@/components/friend/friend.vue'
@@ -12,14 +13,18 @@ import nearby from '@/components/friend/nearby/nearby.vue'
 import friends from '@/components/friend/friends/friends.vue'
 
 Vue.use(Router)
-
+// 路由实例化
 export default new Router({
   linkActiveClass: 'active',
   history: true,
   routes: [{
+    // 地址为 xxx/path 的时候
+    // <router-view></router-view>
+    // 里面显示的组件 component
     path: '/home',
     name: 'home',
     component: home,
+    // 二级路由
     children: [{
       path: '',
       component: home

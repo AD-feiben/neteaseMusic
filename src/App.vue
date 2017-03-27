@@ -1,7 +1,9 @@
 <template>
 <div id="app">
+  <!-- v-on:searching 监听子件触发的 searching 事件-->
   <myHeader  v-on:searching='showSearch'></myHeader>
   <div id="view">
+    <!-- 路由显示的窗口,相当于 angular 的 ng-view -->
     <router-view></router-view>
   </div>
   <myFooter></myFooter>
@@ -10,9 +12,11 @@
 </template>
 
 <script>
+// 导入需要用到的组件
 import myHeader from './components/header/header.vue'
 import myFooter from './components/footer/footer.vue'
 import mySearch from './components/search/search.vue'
+// 导出 app 组件 在 main.js 入口文件使用
 export default {
   name: 'app',
   data(){
@@ -21,6 +25,7 @@ export default {
     }
   },
   methods: {
+    // 接收到子件触发的 searching 事件的时候执行的函数
     showSearch: function(){
       console.log('接收到子件的消息');
       this.searching = true;
@@ -29,11 +34,13 @@ export default {
       this.searching = false;
     }
   },
+  // 注册每一个组件,这样才能在 template 中使用
   components: {
     myHeader,
     myFooter,
     mySearch
   },
+  // 当前组件被创建的时候会调用的函数
   created: function (){
     if(window.location.hash === '#/'){
       this.$router.push('recommend');
