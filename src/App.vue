@@ -17,7 +17,7 @@ export default {
   name: 'app',
   data(){
     return {
-      searching: true
+      searching: false
     }
   },
   methods: {

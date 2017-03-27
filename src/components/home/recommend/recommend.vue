@@ -74,7 +74,6 @@ export default {
       axios.get('./static/data.json')
         .then((res) => {
           this.lists = res.data.lists;
-          console.log(this.lists);
           this.banners = res.data.banners;
           setTimeout(function() {
             new Swiper("#banner", {
