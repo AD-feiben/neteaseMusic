@@ -1,0 +1,36 @@
+.
+├── App.vue
+├── assets
+│   └── logo.png
+├── components
+│   ├── footer
+│   │   └── footer.vue
+│   ├── friend
+│   │   ├── dynamic
+│   │   │   └── dynamic.vue
+│   │   ├── friends
+│   │   │   └── friends.vue
+│   │   ├── friend.vue
+│   │   └── nearby
+│   │       └── nearby.vue
+│   ├── header
+│   │   └── header.vue
+│   ├── home
+│   │   ├── home.vue
+│   │   ├── ranking
+│   │   │   └── ranking.vue
+│   │   ├── recommend
+│   │   │   └── recommend.vue
+│   │   ├── songList
+│   │   │   └── songList.vue
+│   │   └── station
+│   │       └── station.vue
+│   ├── list
+│   │   └── list.vue
+│   └── search
+│       └── search.vue
+├── main.js
+└── router
+    └── index.js
+
+16 directories, 17 files
