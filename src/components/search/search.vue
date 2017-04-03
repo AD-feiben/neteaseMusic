@@ -18,9 +18,18 @@
       <i class='iconfont icon-gengduo'></i>
     </div>
 
-    <div id="searchResult" v-show="searchResult">
-
-    </div>
+    <ul id="searchResult" v-show="searchResult">
+      <li v-for='(item, index) in searchResult' v-on:click="singNewSong(index)">
+        <div class="album"><img v-bind:src="item.album.picUrl"></div>
+        <div class="songContent">
+          <p class="songName" v-html="item.name"></p>
+          <p class="artists">
+            <span v-for="artist in item.artists" v-html="artist.name"></span>
+          </p>
+          <p class="albumName" v-html="item.album.name"></p>
+        </div>
+      </li>
+    </ul>
   </div>
 </div>
 </template>
@@ -50,15 +59,18 @@ export default {
     searchBtn: function(){
       this.isfocu = true;
       if(this.searchInput){
-        axios.get(`http://ycmusic.applinzi.com/search.php?s=${this.searchInput}&type=1&limit=10`)
+        axios.get(`http://ycmusic.applinzi.com/search.php?s=${this.searchInput}&type=1&limit=100`)
         .then((res) => {
           this.searchResult = res.data.result.songs;
-          console.log(this.searchResult);
+          this.$emit('searchSuccess', this.searchResult);
         })
         .catch((err) => {
           console.log(err);
         })
       }
+    },
+    singNewSong: function(index){
+      this.$emit('changeSong', index);
     }
   }
 }
@@ -70,7 +82,7 @@ export default {
   top: 0;
   left: 0;
   right: 0;
-  bottom: 1.3611111111111112rem;
+  bottom: 1.35rem;
   z-index: 100;
 }
 #searchHeader{
@@ -167,4 +179,53 @@ export default {
 .icon-gengduo{
   margin-top: 0.1111111111111111rem;
 }
+
+#searchResult{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  padding: 0 0.1388888888888889rem;
+  background: #f0f4f3;
+  overflow-y: auto;
+}
+
+#searchResult li{
+  height: 1.6666666666666667rem;
+  border-bottom: 1px solid #999;
+  padding: 0.1388888888888889rem;
+  display: flex;
+}
+
+#searchResult li .album{
+  width: 1.6666666666666667rem;
+  height: 1.6666666666666667rem;
+}
+
+#searchResult li .album img{
+  width: 100%;
+  height: 100%;
+}
+
+#searchResult li .songContent{
+  flex: 1;
+  padding-left: 0.2777777777777778rem;
+  font-size: 0.16666666666666666rem;
+}
+
+.songName{
+  font-size: 0.2777777777777778rem;
+}
+
+.artists{
+  margin: 0.06944444444444445rem 0;
+  color: #666;
+}
+
+.albumName{
+  color: #666;
+}
+
 </style>

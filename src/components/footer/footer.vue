@@ -1,10 +1,12 @@
 <template lang="html">
   <div id="footer">
-    <img src="http://p1.music.126.net/qW4N08_Q8PSePV7iewwvHg==/3438172860758204.jpg" alt="">
+    <img :src="audios[index].album.picUrl" alt="audios[index].album.name">
 
     <div id="songInfo">
-      <p id="songName" v-text="songName"></p>
-      <p id="artist" v-text='artist'></p>
+      <p id="songName" v-text="audios[index].name"></p>
+      <p id="artist">
+        <span v-for='art in audios[index].artists' v-text="art.name"></span>
+      </p>
     </div>
 
     <div id="controller">
@@ -13,7 +15,7 @@
       </div>
       <div class="play" @click="playSong(this)">
         <audio id="myAudio">
-          <source :src="songUrl" type="audio/mpeg" preload="auto">
+          <source :src="audios[index].audio" type="audio/mpeg" preload="auto">
           不支持
         </audio>
         <i class="iconfont icon-bofang" v-show="!isPlay"></i>
@@ -31,6 +33,7 @@
 <script>
 export default {
   name: 'footer',
+  props: ['audios', 'index'],
   data() {
     return {
       isPlay: false,

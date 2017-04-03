@@ -1,6 +1,6 @@
 # neteaseMusic
 
-> this is a web project base of vue
+> this is a web project base on vue
 
 ## Build Setup
 
