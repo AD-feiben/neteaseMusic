@@ -6,7 +6,7 @@
     <!-- 路由显示的窗口,相当于 angular 的 ng-view -->
     <router-view></router-view>
   </div>
-  <myFooter v-bind:audios='audios' v-bind:index='index'></myFooter>
+  <myFooter :currentAudio='currentAudio' :pause='pause'></myFooter>
   <mySearch v-show='searching' v-on:back="hideSearch" v-on:changeSong="changeSong" v-on:searchSuccess='searchSuccess'></mySearch>
 </div>
 </template>
@@ -44,7 +44,8 @@ export default {
         "audio": "http://m2.music.126.net/bHhkaFisfPzs54I9N86Org==/3346913395008661.mp3",
         "djProgramId": 0,
         "page": "http://music.163.com/m/song/287035"
-      }]
+      }],
+      currentAudio: ''
     }
   },
   methods: {
@@ -58,12 +59,13 @@ export default {
     },
     searchSuccess: function(audios) {
       this.audios = audios;
-      console.log("========================");
-      console.log(this.audios);
     },
     changeSong: function(index) {
       this.index = index;
-    }
+      this.pause = true;
+      this.currentAudio = this.audios[this.index];
+    },
+    pause: function(){return true},
   },
   // 注册每一个组件,这样才能在 template 中使用
   components: {
@@ -76,6 +78,7 @@ export default {
     if (window.location.hash === '#/') {
       this.$router.push('recommend');
     }
+    this.currentAudio = this.audios[this.index];
   }
 }
 </script>

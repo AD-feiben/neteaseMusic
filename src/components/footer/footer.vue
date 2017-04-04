@@ -1,21 +1,20 @@
 <template lang="html">
   <div id="footer">
-    <img :src="audios[index].album.picUrl" alt="audios[index].album.name">
+    <img :src="currentAudio.album.picUrl" :alt="currentAudio.album.name">
 
     <div id="songInfo">
-      <p id="songName" v-text="audios[index].name"></p>
+      <p id="songName" v-text="currentAudio.name"></p>
       <p id="artist">
-        <span v-for='art in audios[index].artists' v-text="art.name"></span>
+        <span v-for='art in currentAudio.artists' v-text="art.name"></span>
       </p>
     </div>
 
     <div id="controller">
       <div class="menu">
-        <i  class="iconfont icon-fudai"></i>
+        <i class="iconfont icon-fudai"></i>
       </div>
       <div class="play" @click="playSong(this)">
-        <audio id="myAudio">
-          <source :src="audios[index].audio" type="audio/mpeg" preload="auto">
+        <audio id="myAudio"  type="audio/mpeg" preload="auto">
           不支持
         </audio>
         <i class="iconfont icon-bofang" v-show="!isPlay"></i>
@@ -33,37 +32,36 @@
 <script>
 export default {
   name: 'footer',
-  props: ['audios', 'index'],
+  props: ['currentAudio', 'pause'],
   data() {
     return {
-      isPlay: false,
+      isPlay: !this.pause(),
       audio: '',
-      songUrl: 'http://m2.music.126.net/zc-oRtIr-vzJdK8VrrLYJA==/3401888976994345.mp3',
       progress: '0%',
-      intervalId: '',
-      songName: '陪你度过漫长岁月',
-      artist: '陈奕迅',
-      playSong: function(obj) {
-        if (!this.audio) {
-          this.audio = document.getElementById('myAudio');
-        }
-        if (this.isPlay) {
-          this.audio.pause();
-          window.clearInterval(this.intervalId);
-          this.isPlay = false;
-        } else {
-          this.audio.play();
-          this.intervalId = setInterval(() => {
-            this.progress = (this.audio.currentTime / this.audio.duration) * 100 + "%";
-            if(this.progress === '100%'){
-              window.clearInterval(this.intervalId);
-              this.isPlay = false;
-              this.progress = '0%';
-            }
-          }, 500);
-          this.isPlay = true;
-        }
-
+      intervalId: ''
+    }
+  },
+  methods: {
+    playSong: function(obj) {
+      if (!this.audio) {
+        this.audio = document.getElementById('myAudio');
+      }
+      this.audio.src = this.currentAudio.audio;
+      if (this.isPlay) {
+        this.audio.pause();
+        window.clearInterval(this.intervalId);
+        this.isPlay = false;
+      } else {
+        this.audio.play();
+        this.intervalId = setInterval(() => {
+          this.progress = (this.audio.currentTime / this.audio.duration) * 100 + "%";
+          if (this.progress === '100%') {
+            window.clearInterval(this.intervalId);
+            this.isPlay = false;
+            this.progress = '0%';
+          }
+        }, 500);
+        this.isPlay = true;
       }
     }
   }

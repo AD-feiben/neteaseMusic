@@ -142,6 +142,11 @@ export default {
   height: 100%;
   z-index: 10;
 }
+
+ .iconfont:active{
+    background: #810101;
+}
+
 #input .icon i{
   font-size: 0.5833333333333334rem;
   color: #fff;
@@ -197,6 +202,10 @@ export default {
   border-bottom: 1px solid #999;
   padding: 0.1388888888888889rem;
   display: flex;
+}
+
+#searchResult li:active{
+  background: #fff;
 }
 
 #searchResult li .album{
